@@ -1,0 +1,19 @@
+"use client"
+import React, { ReactElement } from "react";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+
+interface IProps {
+  children: ReactElement;
+}
+const CustomApolloProvider = ({ children }: IProps) => {
+  const client = new ApolloClient({
+    uri: "https://hasura.io/learn/graphql",
+    cache: new InMemoryCache(),
+    headers: {
+      Authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDY1YmUwOGE5YzI4MThiZjIzZmI3YjRmMCJ9LCJuaWNrbmFtZSI6Im1heWFua3RhbXJrYXIyMDAxIiwibmFtZSI6Im1heWFua3RhbXJrYXIyMDAxQGdtYWlsLmNvbSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci85OWI5MDNmOWY3ZTAwYTE4ZmRlMGQwYjBhNmI3YWZhMj9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRm1hLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDI0LTAyLTAzVDA5OjUxOjA0LjE5NVoiLCJpc3MiOiJodHRwczovL2dyYXBocWwtdHV0b3JpYWxzLmF1dGgwLmNvbS8iLCJhdWQiOiJQMzhxbkZvMWxGQVFKcnprdW4tLXdFenFsalZOR2NXVyIsImlhdCI6MTcwNjk1Mzg2NSwiZXhwIjoxNzA2OTg5ODY1LCJzdWIiOiJhdXRoMHw2NWJlMDhhOWMyODE4YmYyM2ZiN2I0ZjAiLCJhdF9oYXNoIjoiVmwxZmN6WnlpbFhEdFE0UW1maTdNUSIsInNpZCI6IjZFazl4eHBVVFA4OFNlT2Y5WTRQN1NZVHgtY0Z4YTBoIiwibm9uY2UiOiJDRjE5QVZLRVFzdmFMZDdYSVQ3dTlNN3dBUDY0MlQubyJ9.eRtH_jZD1bukPo8Pb12Nf1w6wVuxYA_paMxk2AquUDv2XEpgzYws2TUUqaO8iy4ZmwEQuzvSnKJKveiuzXOVELrf5u8FgSPkYsc8MGGYo4_6cX1jjLAk7N7E3fDTTr8bvVs1m79qf5eoyAb3_dzItYdwL69PCOlvHEZloh0hxIv1zGlhwjeE7frx2FPdDHTxu2r_c1MBzZ5iJ-fB6nsK7oD-x35VwMFuVVJsgVtoPnn0zzDHrUNakGyOqjJC-W1XfiBQw8O9g77ZgcaVdFEuXtome-DMVom-SQrDoPBuOOquAD_aq6XO-afKX_AM5U7dHjGn9DaaoSRqCVDVhsAd6g`,
+    },
+  });
+  return <ApolloProvider client={client}>{children}</ApolloProvider>;
+};
+
+export default CustomApolloProvider;
