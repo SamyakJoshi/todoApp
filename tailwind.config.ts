@@ -9,7 +9,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      textColor: {
+      color: {
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
       },
@@ -23,6 +23,8 @@ const config: Config = {
       serif: ["Merriweather", "serif"],
     },
   },
-  plugins: [],
+  plugins: [
+    
+  ],
 };
 export default config;
