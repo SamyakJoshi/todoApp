@@ -1,7 +1,7 @@
 "use client";
 import { gql, useQuery } from "@apollo/client";
 import ToDoItem from "./todoItem";
-import AddItem from "./addItem";
+import AddTodo from "./addItem";
 
 export interface ITodo {
   title: string;
@@ -33,7 +33,7 @@ function TodoTable() {
       ) : (
         <>
           <div className="flex flex-col items-center">
-            <AddItem />
+            <AddTodo />
             <ToDoItem />
           </div>
         </>
