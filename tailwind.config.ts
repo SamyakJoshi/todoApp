@@ -9,13 +9,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      color: {
+      colors: {
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
+        typography: 'var(--color-typography)',
+        button:'var(--color-buttons)',
+        hoverButton:'var(--color-hoverButton)',
       },
       backgroundColor: {
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
+      },
+      backgroundImage: {
+        gradientBackground: 'var(--color-gradient-background)',
+
+      },
+      borderColor: {
+        border: 'var(--color-border)',
       },
     },
     fontFamily: {

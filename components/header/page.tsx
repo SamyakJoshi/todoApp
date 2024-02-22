@@ -1,16 +1,19 @@
+import ThemeSwitcher from "@/app/themeSwitcher";
 import ThemeSetting from "../themeSetting";
 function Header() {
-  
   return (
-    <div className=" p-5 bg-blue-500 flex justify-between">
+    <div className=" p-5 bg-secondary  w-full flex justify-between text-typography ">
       <div>
-        <h1>Todo</h1>
+        <h1 className="text-typography">Todo</h1>
       </div>
-      <div>
-      </div>
-      <div className="flex">
-        <input type="text" placeholder="search " className="p-2" />
-        <ThemeSetting/>
+      <div></div>
+      <div className="flex ">
+        <input
+          type="text"
+          placeholder="search "
+          className="p-2 mr-3 bg-secondary"
+        />
+        <ThemeSetting />
       </div>
     </div>
   );

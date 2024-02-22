@@ -32,7 +32,7 @@ function TodoTable() {
         <span>Loading</span>
       ) : (
         <>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center bg-gradientBackground h-screen">
             <AddTodo />
             <ToDoItem />
           </div>

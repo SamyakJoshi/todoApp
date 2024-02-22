@@ -50,21 +50,19 @@ function AddItem() {
 
   return (
     <>
-      <div className=" m-4 flex justify-evenly shadow-xl p-6">
-        <button
-          onClick={() => setIsOpen(true)}
-          className=" p-4 bg-gradient-to-l from-cyan-500 to-blue-500 w-60 rounded-md "
-        >
-          Add Task
-        </button>
-      </div>
+      <button
+        onClick={() => setIsOpen(true)}
+        className=" m-4 p-4 bg-button w-40 hover:bg-hoverButton rounded-md text-typography"
+      >
+        Add Task
+      </button>
 
       {isOpen && (
-        <div className="bg-indigo-500 w-6/12 p-5 rounded-lg">
+        <div className="bg-primary w-6/12 p-5 rounded-lg">
           <div>
             <label
               htmlFor="title"
-              className="block mb-2 text-sm font-medium text-gray-900"
+              className="block mb-2 text-sm font-medium text-typography"
             >
               Todo Name:
             </label>
@@ -72,7 +70,7 @@ function AddItem() {
               type="text"
               id="title"
               name="title"
-              className="bg-white-50  w-full border-gray-300 rounded-xl p-2 mb-3"
+              className="bg-white-50  w-full border-border rounded-xl p-2 mb-3"
               placeholder="Enter todo name"
               required
               value={title}
@@ -86,9 +84,9 @@ function AddItem() {
                 type="checkbox"
                 checked={is_public}
                 onChange={(e) => setIs_public(e.target.checked)}
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                className="w-4 h-4 text-typography bg-primary border-border rounded checked:bg-button  focus:secondary"
               />
-              <label className="ms-2 text-sm font-medium text-white">
+              <label className="ms-2 text-sm font-medium text-typography">
                 Is Completed
               </label>
             </div>
@@ -96,7 +94,7 @@ function AddItem() {
           <div className="flex">
             <button
               onClick={() => setIsOpen(false)}
-              className="m-2 w-6/12 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              className="m-2 w-6/12 text-typography bg-button hover:bg-hoverButton focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
               Cancel
             </button>
@@ -106,7 +104,7 @@ function AddItem() {
                 handleSubmit();
               }}
               type="submit"
-              className="m-2 w-6/12 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="m-2 w-6/12 text-typography bg-button hover:bg-hoverButton focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
             >
               Add Todo
             </button>

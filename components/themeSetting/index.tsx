@@ -1,10 +1,17 @@
 'use client'
-import React from "react";
+import React, { useState } from "react";
 import { changeTheme } from "../../utils/themeSwicher";
 
 const ThemeSetting = () => {
+  const [theme, setTheme] = useState("light");
   const handleClick = () => {
-    changeTheme("theme1");
+    if (theme === "light") {
+      setTheme("dark");
+      changeTheme("dark");
+      return;
+    }
+    setTheme("light");
+    changeTheme("light");
   };
 
   return (
