@@ -12,10 +12,13 @@ const config: Config = {
       color: {
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
+        button:"var(--color-buttons)",
       },
       backgroundColor: {
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
+        button:"var(--color-buttons)",
+        buttonHover:"var(--color-buttonHover)"
       },
     },
     fontFamily: {

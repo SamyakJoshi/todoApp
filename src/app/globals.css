@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-  html{
+  html {
     --color-primary: #64748b;
     --color-secondary: #475569;
-    --color-buttons: #0f172a;
+    --color-buttons: #ff7179;
     --color-typography: #f8fafc;
+    --color-buttonHover:#ff71798c
   }
   @import "/themes/theme1.css";
   @import "/themes/theme2.css";
