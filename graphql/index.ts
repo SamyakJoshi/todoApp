@@ -46,3 +46,27 @@ export const DELETE_TASK = gql`
     }
   }
 `;
+
+export const ADD_USER = gql`
+  mutation AddUser($username: String!, $password: String!, $email: String!) {
+    createUser(
+      createUserData: {
+        username: $username
+        password: $password
+        email: $email
+      }
+    ) {
+      username
+    }
+  }
+`;
+
+export const GET_USERS = gql`
+  query {
+    getUsers {
+      _id
+      username
+      email
+    }
+  }
+`;
