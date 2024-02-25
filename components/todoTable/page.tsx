@@ -2,29 +2,12 @@
 import { gql, useQuery } from "@apollo/client";
 import ToDoItem from "./todoItem";
 import AddTodo from "./addItem";
+import { GET_TODOS } from "../../graphql";
 
-export interface ITodo {
-  title: string;
-  is_public: boolean;
-  is_completed: boolean;
-  id: number;
-  created_at: string;
-}
 
-const getTodos = gql`
-  query {
-    todos {
-      title
-      is_public
-      is_completed
-      id
-      created_at
-    }
-  }
-`;
 
 function TodoTable() {
-  const { loading } = useQuery(getTodos);
+  const { loading } = useQuery(GET_TODOS);
 
   return (
     <>
