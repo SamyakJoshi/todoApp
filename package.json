@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "setup:backend": "cd backend && npm install",
-    "dev:backend": "cd backend && npm start",
+    "dev:backend": "cd backend &&  npm run start:dev",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

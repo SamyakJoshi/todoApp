@@ -12,6 +12,8 @@ function ToDoItem() {
     <>
       <div className="">
         <tr className="border-solid  shadow-xl">
+          <td className="p-4">Completed</td>
+
           <td className="p-4">Id</td>
           <td className="p-4 ">Content</td>
           <td className="p-4">Description</td>
