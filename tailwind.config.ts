@@ -32,7 +32,7 @@ const config: Config = {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
     },
-  },
+      },
   plugins: [
     
   ],
