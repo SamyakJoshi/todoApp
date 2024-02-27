@@ -5,6 +5,7 @@ import { ObjectId } from "mongodb";
 import { Todo } from "../../entities";
 import TodoService from "./service";
 import { finishTaskInput, NewTodoInput } from "./input";
+import CommentService from "../comment/service";
 
 /*
   IMPORTANT: Your business logic must be in the service!
@@ -29,14 +30,24 @@ export default class TodoResolver {
   }
 
   @Query((returns) => [Todo])
+  async getAllTodoList() {
+    const todo = await this.todoService.getiWithoutId();
+    console.log("todo: ", todo);
+
+    return todo;
+  }
+
+  @Query((returns) => [Todo])
   async getAllTasks() {
     const Tasks = await this.todoService.getAllTasks();
+
+    console.log("Tasks: ", Tasks);
     return Tasks;
   }
 
   @Query((returns) => [Todo])
   async getUserAssignedTasks(@Arg("id") id: ObjectId) {
-    console.log(id)
+    console.log(id);
     const Tasks = await this.todoService.getUserAssignedTasks(id);
     return Tasks;
   }
@@ -72,5 +83,4 @@ export default class TodoResolver {
     const todo = await this.todoService.shareTask(task);
     return todo;
   }
-
 }
