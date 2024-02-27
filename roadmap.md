@@ -5,7 +5,7 @@ Frontend:
   - Make UI for User Managemnt Page
   - Authentication UI / Integration with Session Cookies
   - Make proper component for isDone instead of showing true and false
-  - Make a Logo Component to display all the related branding
+  - Make a Logo Component to display all the related branding - Issue-2
 
 Backend:
   - Bulk Todo Add
