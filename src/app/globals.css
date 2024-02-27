@@ -12,6 +12,8 @@
     --color-typography: #2D2D2D;
     --color-border:#E9E9E9;
     --color-gradient-background:linear-gradient(to right, #cfd9df, #e2ebf0);
+    --heading:'0.875rem';
+    --caption:#2D2D2D;
   }
 @import "../../themes/theme1.css";
   @import "/themes/theme2.css";
