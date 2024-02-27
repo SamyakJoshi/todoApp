@@ -10,7 +10,9 @@ export default async (app: express.Application) => {
   app.use(config.graphqlPath, bodyParser.json());
 
   // Cors configuration
-  app.use(cors());
+  app.use(
+    cors()
+  );
 
   // Sets various HTTP headers to help protect our app
   app.use(helmet());

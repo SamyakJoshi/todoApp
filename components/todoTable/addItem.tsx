@@ -2,39 +2,21 @@
 
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { gql } from "graphql-tag";
-
-// const ADD_TODO = gql`
-//   mutation AddTodo($title: String!, $is_public: Boolean!) {
-//     insert_todos_one(object: { title: $title, is_public: $is_public }) {
-//       id
-//       title
-//       is_completed
-//     }
-//   }
-// `;
-
-const ADD_TODO = gql`
-  mutation AddTodo($is_public: Boolean!, $title: String!) {
-    insert_todos(objects: { is_public: $is_public, title: $title }) {
-      affected_rows
-    }
-  }
-`;
+import { ADD_TODO, GET_TODOS } from "../../graphql";
 
 function AddItem() {
   const [title, setTitle] = useState("");
+  const [assignee, setAssignee] = useState("");
+  const [description, setDescription] = useState("");
+
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [is_public, setIs_public] = useState(false);
 
   const [addTodo] = useMutation(ADD_TODO, {
-    variables: { title: title, is_public: is_public },
+    variables: { content: title, description, assignee },
+    refetchQueries: [{ query: GET_TODOS }],
   });
 
   const handleSubmit = async () => {
-    const newTodo = { title, is_public };
-    console.log("New Todo:", newTodo);
-
     try {
       const { data } = await addTodo();
 
@@ -45,7 +27,8 @@ function AddItem() {
 
     // Resetting the data.
     setTitle("");
-    setIs_public(false);
+    setAssignee("");
+    setDescription("");
   };
 
   return (
@@ -77,20 +60,43 @@ function AddItem() {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="flex items-center">
-            <div className="flex items-center mb-4">
-              <input
-                id="default-checkbox"
-                type="checkbox"
-                checked={is_public}
-                onChange={(e) => setIs_public(e.target.checked)}
-                className="w-4 h-4 text-typography bg-primary border-border rounded checked:bg-button  focus:secondary"
-              />
-              <label className="ms-2 text-sm font-medium text-typography">
-                Is Completed
-              </label>
-            </div>
+          <div>
+            <label
+              htmlFor="title"
+              className="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Description:
+            </label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              className="bg-white-50  w-full border-gray-300 rounded-xl p-2 mb-3"
+              placeholder="Enter description"
+              required
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
           </div>
+          <div>
+            <label
+              htmlFor="title"
+              className="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Assignee Name:
+            </label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              className="bg-white-50  w-full border-gray-300 rounded-xl p-2 mb-3"
+              placeholder="Enter your name"
+              required
+              value={assignee}
+              onChange={(e) => setAssignee(e.target.value)}
+            />
+          </div>
+
           <div className="flex">
             <button
               onClick={() => setIsOpen(false)}

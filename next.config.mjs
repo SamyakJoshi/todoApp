@@ -1,12 +1,21 @@
 /** @type {import('next').NextConfig} */
+
+// It will redirect to /todo 
 const nextConfig = {
-  redirects: async () => [
-    {
-      source: "/",
-      destination: "/todo",
-      permanent: true,
-    },
-  ],
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/todo",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
+
+
+
+
+
