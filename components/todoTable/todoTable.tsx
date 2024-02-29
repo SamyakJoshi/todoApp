@@ -12,9 +12,9 @@ const ShowTodo = ({ item, index }: IProps) => {
   const [setTaskDone] = useMutation(SET_TASK_DONE, {
     refetchQueries: [{ query: GET_TODOS }],
   });
-  const [deleteTask] = useMutation(DELETE_TASK, {
-    refetchQueries: [{ query: GET_TODOS }],
-  });
+  // const [deleteTask] = useMutation(DELETE_TASK, {
+  //   refetchQueries: [{ query: GET_TODOS }],
+  // });
 
   const handleCheckboxChange = async () => {
     try {

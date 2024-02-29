@@ -1,15 +1,10 @@
-"use client";
-
-import { gql, useQuery } from "@apollo/client";
 import ShowTodo from "./todoTable";
-import { GET_TODOS } from "../../graphql";
-import { ITodo } from "../../types";
+import { getTodo } from "@/lib/actions/todo";
 
-function ToDoItem() {
-  const { data, error } = useQuery(GET_TODOS);
-  const value: ITodo[] = data?.getAllTasks;
+const ToDoItem = async () => {
+  const value = await getTodo();
+  console.log(value, "====value");
 
-  if (error) return `Error! ${error.message}`;
   return (
     <>
       <div className="">
@@ -29,6 +24,6 @@ function ToDoItem() {
       </div>
     </>
   );
-}
+};
 
 export default ToDoItem;

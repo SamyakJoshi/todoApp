@@ -41,7 +41,7 @@ export default class TodoResolver {
   async getAllTasks() {
     const Tasks = await this.todoService.getAllTasks();
 
-    console.log("Tasks: ", Tasks);
+    // console.log("Tasks: ", Tasks);
     return Tasks;
   }
 

@@ -20,7 +20,7 @@ function AddItem() {
     try {
       const { data } = await addTodo();
 
-      console.log("Todo added:", data.insert_todos_one);
+      // console.log("Todo added:", data.insert_todos_one);
     } catch (error) {
       console.log("Error adding todo:");
     }

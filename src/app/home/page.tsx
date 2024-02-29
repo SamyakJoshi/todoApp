@@ -4,6 +4,7 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import { useState } from "react";
 import Modal from "react-modal";
 import { ADD_USER, GET_USERS } from "../../../graphql";
+import { fetchGraphQl } from "@/lib";
 
 interface User {
   _id: string;
@@ -47,7 +48,7 @@ const UserList: React.FC = () => {
           password: formData.password,
           email: formData.email,
         },
-        refetchQueries:[{query:GET_USERS}]
+        refetchQueries: [{ query: GET_USERS }],
       });
       setFormData({ username: "", password: "", email: "" });
       //  refetch(); // Refresh the user list after adding a new user
@@ -56,7 +57,6 @@ const UserList: React.FC = () => {
       console.error("Error adding user:", error);
     }
   };
-
   return (
     <>
       <div className="max-w-lg mx-auto bg-gray-100 p-4 rounded-md shadow-md my-4 flex">
@@ -76,7 +76,9 @@ const UserList: React.FC = () => {
               className="border-b py-4 flex items-center justify-between"
             >
               <div>
-                <p className="text-lg font-semibold">User Name : {user.username}</p>
+                <p className="text-lg font-semibold">
+                  User Name : {user.username}
+                </p>
                 <p className="text-gray-600">User Email :{user.email}</p>
               </div>
               {/* <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
