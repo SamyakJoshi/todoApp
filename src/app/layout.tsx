@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import dynamic from "next/dynamic";
 import "./globals.css";
+import { getTodoData } from "@/lib/todo";
 
 const ApolloProvider = dynamic(() => import('@/components/apolloProvider'))
 
@@ -11,6 +12,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  getTodoData();
   return (
     <html lang="en" >
       <ApolloProvider>

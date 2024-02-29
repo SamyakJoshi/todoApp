@@ -1,3 +1,5 @@
+"use client";
+
 import { gql, useQuery } from "@apollo/client";
 import ShowTodo from "./todoTable";
 import { GET_TODOS } from "../../graphql";
@@ -22,7 +24,7 @@ function ToDoItem() {
           <td className="p-4">Actions</td>
         </tr>
         {value?.map((item, index) => (
-          <ShowTodo item={item} index={index} />
+          <ShowTodo item={item} index={index} key={index} />
         ))}
       </div>
     </>

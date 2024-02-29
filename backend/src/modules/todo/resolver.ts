@@ -32,7 +32,7 @@ export default class TodoResolver {
   @Query((returns) => [Todo])
   async getAllTodoList() {
     const todo = await this.todoService.getiWithoutId();
-    console.log("todo: ", todo);
+    // console.log("todo: ", todo);
 
     return todo;
   }
