@@ -1,5 +1,5 @@
 import { Resolver, Arg, Query, Mutation, ID } from "type-graphql";
-import { Service } from "typedi";
+import Container from "typedi";
 import { ObjectId } from "mongodb";
 
 import { Comment } from "../../entities";
@@ -10,33 +10,32 @@ import { NewCommentInput } from "./input";
   IMPORTANT: Your business logic must be in the service!
 */
 
-@Service() // Dependencies injection
 @Resolver((of) => Comment)
 export default class CommentResolver {
-  constructor(private readonly CommentService: CommentService) {}
+  private readonly commentService = Container.get(CommentService);
 
   @Query((returns) => Comment)
   async getComment(@Arg("id") id: ObjectId) {
-    const Comment = await this.CommentService.getCommentById(id);
+    const Comment = await this.commentService.getCommentById(id);
 
     return Comment;
   }
   @Query((returns) => Comment)
   async getCommentList(@Arg("id") id: ObjectId) {
-    const Comment = await this.CommentService.getCommentById(id);
+    const Comment = await this.commentService.getCommentById(id);
 
     return Comment;
   }
 
   @Query((returns) => [Comment])
   async getAllTasks() {
-    const Tasks = await this.CommentService.getAllComments();
+    const Tasks = await this.commentService.getAllComments();
     return Tasks;
   }
 
   @Query((returns) => [Comment])
   async getTaskComments(@Arg("id") id: ObjectId) {
-    const Tasks = await this.CommentService.getTaskComments(id);
+    const Tasks = await this.commentService.getTaskComments(id);
     return Tasks;
   }
 
@@ -44,7 +43,7 @@ export default class CommentResolver {
   async createComment(
     @Arg("createCommentData") createCommentData: NewCommentInput
   ): Promise<Comment> {
-    const Comment = await this.CommentService.addComment(createCommentData);
+    const Comment = await this.commentService.addComment(createCommentData);
     return Comment;
   }
 }

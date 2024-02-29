@@ -8,7 +8,6 @@ export class NewCommentInput {
   @MinLength(1)
   text: string;
 
-
   //////////
   @Field()
   @MaxLength(300)
