@@ -7,7 +7,7 @@ import ModalBackDrop from "./modalBackDrop";
 
 interface IModalOption extends BaseModalProps, PropsWithChildren{
   isOpen: boolean;
-  onClose: VoidFunction;
+  onClose?: VoidFunction;
   backdropProps?: BaseBackDropProps,
 }
 

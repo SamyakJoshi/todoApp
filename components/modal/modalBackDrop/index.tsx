@@ -3,7 +3,7 @@ import { PropsWithChildren } from "react";
 import { BaseBackDropProps, backDrop } from "./modalBackDropVariant";
 
 interface ModalBackDropProps extends BaseBackDropProps, PropsWithChildren {
-  onClose:VoidFunction
+  onClose?:VoidFunction
 }
 
 function ModalBackDrop({children ,onClose,...rest}:ModalBackDropProps ) {
