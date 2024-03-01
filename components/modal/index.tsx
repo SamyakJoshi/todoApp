@@ -1,32 +1,30 @@
-import { PropsWithChildren } from "react";
-
-import { BaseBackDropProps } from "./modalBackDrop/modalBackDropVariant";
+import { PropsWithChildren, ReactNode } from "react";
+import { BaseBackdropProps } from "./modalBackDrop/modalBackDropVariant";
 import { BaseModalProps, baseModal } from "./modalBackDropVariant";
+import ModalBackdrop from "./modalBackDrop";
 
-import ModalBackDrop from "./modalBackDrop";
-
-interface IModalOption extends BaseModalProps, PropsWithChildren{
+interface IModalProps extends BaseModalProps, PropsWithChildren {
   isOpen: boolean;
   onClose?: VoidFunction;
-  backdropProps?: BaseBackDropProps,
+  backdropProps?: BaseBackdropProps;
 }
 
-function Modal({
-  isOpen,
-  onClose,
-  children,
-  backdropProps,
-  ...rest
-}: IModalOption) {
+/**
+ * Modal component props
+ * @param {IModalProps} props - Component props
+ * @returns {ReactNode | null} - Rendered component
+ */
+function Modal(props: IModalProps): ReactNode | null {
+  const { isOpen, onClose, children, backdropProps, ...rest } = props;
 
   if (!isOpen) return null;
 
   return (
-      <ModalBackDrop {...backdropProps} onClose={onClose}>
-      <div className={baseModal(rest)} onClick={(e)=>e.stopPropagation()}>
+    <ModalBackdrop onClose={onClose} {...backdropProps}>
+      <div className={baseModal(rest)} onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
-      </ModalBackDrop>
+    </ModalBackdrop>
   );
 }
 

@@ -1,17 +1,25 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, ReactNode } from "react";
+import { BaseBackdropProps, backDrop } from "./modalBackDropVariant";
 
-import { BaseBackDropProps, backDrop } from "./modalBackDropVariant";
-
-interface ModalBackDropProps extends BaseBackDropProps, PropsWithChildren {
-  onClose?:VoidFunction
+interface IModalBackdropProps extends BaseBackdropProps, PropsWithChildren {
+  onClose?: VoidFunction;
 }
 
-function ModalBackDrop({children ,onClose,...rest}:ModalBackDropProps ) {
+/**
+ * ModalBackdrop component props
+ * @param {IModalBackdropProps} props - Component props
+ * @returns {ReactNode} - Rendered component
+ */
+function ModalBackdrop({
+  children,
+  onClose,
+  ...rest
+}: IModalBackdropProps): ReactNode {
   return (
     <div className={backDrop(rest)} onClick={onClose}>
-    {children}
+      {children}
     </div>
   );
 }
 
-export default ModalBackDrop;
+export default ModalBackdrop;
