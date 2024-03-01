@@ -18,9 +18,9 @@ const ToDoItem = async () => {
           <td className="p-4">Is done</td>
           <td className="p-4">Actions</td>
         </tr>
-        {value?.map((item, index) => (
+        {/* {value?.map((item, index) => (
           <ShowTodo item={item} index={index} key={index} />
-        ))}
+        ))} */}
       </div>
     </>
   );

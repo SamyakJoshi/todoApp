@@ -1,39 +1,34 @@
-"use client";
 
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_TODO, GET_TODOS } from "../../graphql";
+import { addTodo } from "@/lib/actions/todo";
 
-function AddItem() {
-  const [title, setTitle] = useState("");
-  const [assignee, setAssignee] = useState("");
-  const [description, setDescription] = useState("");
+const AddItem=async()=> {
+  // const [title, setTitle] = useState("");
+  // const [assignee, setAssignee] = useState("");
+  // const [description, setDescription] = useState("");
 
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const reqBody={content: "task testing", description:"this task is for testing", assignee:"jaya patidar"}
+const res=await addTodo(reqBody);
+console.log("response========",res)
 
-  const [addTodo] = useMutation(ADD_TODO, {
-    variables: { content: title, description, assignee },
-    refetchQueries: [{ query: GET_TODOS }],
-  });
+  // const [addTodo] = useMutation(ADD_TODO, {
+  //   variables: { content: title, description, assignee },
+  //   refetchQueries: [{ query: GET_TODOS }],
+  // });
 
-  const handleSubmit = async () => {
-    try {
-      const { data } = await addTodo();
-
-      // console.log("Todo added:", data.insert_todos_one);
-    } catch (error) {
-      console.log("Error adding todo:");
-    }
+  
 
     // Resetting the data.
-    setTitle("");
-    setAssignee("");
-    setDescription("");
-  };
+    // setTitle("");
+    // setAssignee("");
+    // setDescription("");
+  // };
 
   return (
     <>
-      <div className=" m-4 flex justify-evenly shadow-xl p-6">
+      {/* <div className=" m-4 flex justify-evenly shadow-xl p-6">
         <button
           onClick={() => setIsOpen(true)}
           className=" p-4 bg-gradient-to-l from-cyan-500 to-blue-500 w-60 rounded-md "
@@ -118,9 +113,9 @@ function AddItem() {
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
-}
+};
 
 export default AddItem;

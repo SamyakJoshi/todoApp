@@ -11,7 +11,7 @@ function TodoTable() {
       ) : ( */}
         <>
           <div className="flex flex-col items-center">
-            {/* <AddTodo /> */}
+            <AddTodo />
             <ToDoItem />
           </div>
         </>

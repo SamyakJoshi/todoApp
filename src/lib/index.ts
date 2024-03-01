@@ -15,5 +15,4 @@ export const fetchGraphQl = async (req: IRequestBody) => {
   });
   const res = await response.json();
   return res;
-
 };
