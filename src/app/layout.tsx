@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import dynamic from "next/dynamic";
+
 import "./globals.css";
 
 const ApolloProvider = dynamic(() => import("@/components/apolloProvider"));
