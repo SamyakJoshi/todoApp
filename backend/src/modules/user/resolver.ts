@@ -1,5 +1,5 @@
-import { Resolver, Arg, Query, Mutation, ID } from "type-graphql";
-import Container, { Inject } from "typedi";
+import { Resolver, Arg, Query, Mutation } from "type-graphql";
+import Container from "typedi";
 import { ObjectId } from "mongodb";
 import UserService from "./service";
 

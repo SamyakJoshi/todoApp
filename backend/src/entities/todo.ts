@@ -1,7 +1,6 @@
 import { ObjectType, Field } from "type-graphql";
 import { prop } from "@typegoose/typegoose";
 import { ObjectId } from "mongodb";
-import { Comment } from "./comment";
 
 @ObjectType()
 export class Todo {

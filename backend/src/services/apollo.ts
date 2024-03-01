@@ -1,4 +1,3 @@
-import Container from "typedi";
 import { buildSchema } from "../utils/buildSchema";
 import { FastifyInstance } from "fastify";
 import { ApolloServer } from "@apollo/server";

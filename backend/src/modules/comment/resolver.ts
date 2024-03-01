@@ -1,4 +1,4 @@
-import { Resolver, Arg, Query, Mutation, ID } from "type-graphql";
+import { Resolver, Arg, Query, Mutation } from "type-graphql";
 import Container from "typedi";
 import { ObjectId } from "mongodb";
 

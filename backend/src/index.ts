@@ -3,7 +3,6 @@ import "dotenv/config";
 import fastify from "fastify";
 import mongoose from "./services/mongoose";
 import apollo from "./services/apollo";
-import Container, { Service } from "typedi";
 
 const port = process.env.PORT;
 
