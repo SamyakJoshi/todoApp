@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
 # Run ESLint
 echo "Running ESLint..."
 npx eslint .
@@ -9,9 +15,14 @@ echo "Running Prettier..."
 npx prettier --check . && npx prettier --write . 
 
 # Run Prettier to fix formatting issues
-echo "Fixing formatting issues with Prettier..."
+
+echo "${GREEN}Fixing formatting issues with Prettier...${NC}"
 
 
 # Run lint-staged
 echo "Running lint-staged..."
 npx lint-staged
+
+
+# Display message indicating completion
+echo "${GREEN}Pre-commit checks completed successfully.${NC}"
