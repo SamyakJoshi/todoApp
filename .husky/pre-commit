@@ -6,8 +6,13 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
+# Symbols/Emojis
+CHECK_MARK="✅"
+CROSS_MARK="❌"
+WARNING="⚠️"
+
 # Run ESLint
-echo "Running ESLint..."
+echo "***************${YELLOW}${WARNING} Running ESLint...${NC}******************"
 npx eslint .
 
 # Run Prettier
@@ -25,4 +30,4 @@ npx lint-staged
 
 
 # Display message indicating completion
-echo "${GREEN}Pre-commit checks completed successfully.${NC}"
+echo "***********************${GREEN}${CHECK_MARK}Pre-commit checks completed successfully.${NC}*************"
