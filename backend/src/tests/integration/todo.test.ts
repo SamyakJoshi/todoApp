@@ -25,7 +25,7 @@ beforeEach(async () => {
       content: "todo 2",
     },
   ]);
-}); 
+});
 
 afterEach(async () => {
   await clearDatabase();

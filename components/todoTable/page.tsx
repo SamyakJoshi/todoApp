@@ -4,8 +4,6 @@ import ToDoItem from "./todoItem";
 import AddTodo from "./addItem";
 import { GET_TODOS } from "../../graphql";
 
-
-
 function TodoTable() {
   const { loading } = useQuery(GET_TODOS);
 

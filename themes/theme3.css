@@ -1,6 +1,6 @@
 html[data-theme="theme3"] {
-    --color-primary:#f43f5e;
-    --color-secondary:#e11d48;
-    --color-buttons: #4c0519;
-    --color-typography:#fff1f2;
-    }
+  --color-primary: #f43f5e;
+  --color-secondary: #e11d48;
+  --color-buttons: #4c0519;
+  --color-typography: #fff1f2;
+}

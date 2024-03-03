@@ -28,10 +28,10 @@ export default class UserResolver {
 
     return Users;
   }
-  
+
   @Mutation((returns) => User)
   async createUser(
-    @Arg("createUserData") createUserData: NewUserInput
+    @Arg("createUserData") createUserData: NewUserInput,
   ): Promise<User> {
     const User = await this.UserService.addUser(createUserData);
     return User;

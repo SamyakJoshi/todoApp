@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Run ESLint
+echo "Running ESLint..."
+npx eslint .
+
+# Run Prettier
+echo "Running Prettier..."
+npx prettier --check . && npx prettier --write . 
+
+# Run Prettier to fix formatting issues
+echo "Fixing formatting issues with Prettier..."
+
+
+# Run lint-staged
+echo "Running lint-staged..."
+npx lint-staged

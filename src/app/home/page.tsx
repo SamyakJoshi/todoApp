@@ -47,7 +47,7 @@ const UserList: React.FC = () => {
           password: formData.password,
           email: formData.email,
         },
-        refetchQueries:[{query:GET_USERS}]
+        refetchQueries: [{ query: GET_USERS }],
       });
       setFormData({ username: "", password: "", email: "" });
       //  refetch(); // Refresh the user list after adding a new user
@@ -76,7 +76,9 @@ const UserList: React.FC = () => {
               className="border-b py-4 flex items-center justify-between"
             >
               <div>
-                <p className="text-lg font-semibold">User Name : {user.username}</p>
+                <p className="text-lg font-semibold">
+                  User Name : {user.username}
+                </p>
                 <p className="text-gray-600">User Email :{user.email}</p>
               </div>
               {/* <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">

@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import dynamic from "next/dynamic";
 import "./globals.css";
+import { ReactElement } from "react";
 
 const ApolloProvider = dynamic(() => import("@/components/apolloProvider"));
 
@@ -9,13 +10,13 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactElement;
 }>) {
   return (
     <html lang="en">
-      <ApolloProvider>
-        <body className={inter.className}>{children}</body>
-      </ApolloProvider>
+      <body className={inter.className}>
+        <ApolloProvider>{children}</ApolloProvider>
+      </body>
     </html>
   );
 }

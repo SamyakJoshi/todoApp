@@ -42,7 +42,7 @@ export default class CommentResolver {
 
   @Mutation((returns) => Comment)
   async createComment(
-    @Arg("createCommentData") createCommentData: NewCommentInput
+    @Arg("createCommentData") createCommentData: NewCommentInput,
   ): Promise<Comment> {
     const Comment = await this.CommentService.addComment(createCommentData);
     return Comment;

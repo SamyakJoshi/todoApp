@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  html{
+  html {
     --color-primary: #64748b;
     --color-secondary: #475569;
     --color-buttons: #0f172a;

@@ -23,8 +23,6 @@ const config: Config = {
       serif: ["Merriweather", "serif"],
     },
   },
-  plugins: [
-    
-  ],
+  plugins: [],
 };
 export default config;

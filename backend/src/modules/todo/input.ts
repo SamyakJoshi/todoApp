@@ -8,7 +8,6 @@ export class NewTodoInput {
   @MinLength(1)
   content: string;
 
-
   //////////
   @Field()
   @MaxLength(300)

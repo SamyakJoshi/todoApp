@@ -13,8 +13,7 @@ export default class UserModel {
     return UserMongooseModel.findById(_id).lean().exec();
   }
 
-
-  async getUsers(): Promise<User []| null> {
+  async getUsers(): Promise<User[] | null> {
     // Use mongoose as usual
     return UserMongooseModel.find();
   }

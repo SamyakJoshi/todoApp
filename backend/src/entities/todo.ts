@@ -24,12 +24,9 @@ export class Todo {
   @Field()
   description!: string;
 
-
-
   @prop({ default: false })
   @Field()
   isDone!: boolean;
-
 
   @prop({ default: "" })
   @Field()
@@ -38,10 +35,9 @@ export class Todo {
   @prop({ default: Date.now() })
   @Field(() => Date)
   startTime!: Date;
-  
+
   @prop({ default: "" })
   @Field()
   sharedUsers!: string;
   // sharedUsers!: Array<User>;
-
 }

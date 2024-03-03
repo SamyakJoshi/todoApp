@@ -22,7 +22,7 @@ function ToDoItem() {
           <td className="p-4">Actions</td>
         </tr>
         {value?.map((item, index) => (
-          <ShowTodo item={item} index={index} />
+          <ShowTodo key={index} item={item} index={index} />
         ))}
       </div>
     </>

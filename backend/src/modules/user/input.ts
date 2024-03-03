@@ -8,7 +8,6 @@ export class NewUserInput {
   @MinLength(1)
   username: string;
 
-
   //////////
   @Field()
   @MaxLength(300)

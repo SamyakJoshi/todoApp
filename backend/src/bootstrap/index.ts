@@ -22,7 +22,7 @@ export default async (config: Config) => {
 
   app.listen({ port: config.port }, () =>
     console.log(
-      `Server  🚀 🚀 🚀 🚀 🚀  at http://localhost:${config.port}${config.graphqlPath}`
-    )
+      `Server  🚀 🚀 🚀 🚀 🚀  at http://localhost:${config.port}${config.graphqlPath}`,
+    ),
   );
 };

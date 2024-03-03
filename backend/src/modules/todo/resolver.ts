@@ -54,7 +54,7 @@ export default class TodoResolver {
 
   @Mutation((returns) => Todo)
   async createTodo(
-    @Arg("createTodoData") createTodoData: NewTodoInput
+    @Arg("createTodoData") createTodoData: NewTodoInput,
   ): Promise<Todo> {
     const todo = await this.todoService.addTodo(createTodoData);
     return todo;
@@ -62,7 +62,7 @@ export default class TodoResolver {
 
   @Mutation((returns) => Todo)
   async setTakDone(
-    @Arg("setTakDone") task: finishTaskInput
+    @Arg("setTakDone") task: finishTaskInput,
   ): Promise<Todo | null> {
     const todo = await this.todoService.setTakDone(task);
     return todo;
@@ -70,7 +70,7 @@ export default class TodoResolver {
 
   @Mutation((returns) => Todo)
   async deleteTask(
-    @Arg("taskToDelete") task: finishTaskInput
+    @Arg("taskToDelete") task: finishTaskInput,
   ): Promise<Todo | null> {
     const todo = await this.todoService.deleteTask(task);
     return todo;
@@ -78,7 +78,7 @@ export default class TodoResolver {
 
   @Mutation((returns) => Todo)
   async shareTask(
-    @Arg("taskToshare") task: finishTaskInput
+    @Arg("taskToshare") task: finishTaskInput,
   ): Promise<Todo | null> {
     const todo = await this.todoService.shareTask(task);
     return todo;
