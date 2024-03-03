@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "setup:backend": "cd backend && npm install",
-    "dev:backend": "cd backend &&  npm run start:dev",
+    "setup": "pnpm setup:backend && pnpm setup:frontend",
+    "setup:frontend": "pnpm install",
+    "setup:backend": "cd backend && pnpm install",
     "dev": "next dev",
+    "dev:backend": "cd backend && pnpm start:dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -33,10 +35,18 @@
     "pre-push": "^0.1.4",
     "prettier": "^3.2.5",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "@next/eslint-plugin-next": "^13.4.6",
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0"
   },
   "volta": {
-    "node": "21.6.1"
+    "node": "21.6.2"
   },
   "engineStrict": true,
   "engines": {

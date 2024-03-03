@@ -1,12 +1,14 @@
-import { getModelForClass } from "@typegoose/typegoose";
-import { ObjectId } from "mongodb";
+import { getModelForClass } from '@typegoose/typegoose';
+import { ObjectId } from 'mongodb';
 
-import { Todo } from "../../entities";
-import { finishTaskInput, NewTodoInput } from "./input";
+import { Todo } from '../../entities';
+import { finishTaskInput, NewTodoInput } from './input';
+import { Service } from 'typedi';
 
 // This generates the mongoose model for us
 export const TodoMongooseModel = getModelForClass(Todo);
 
+@Service()
 export default class TodoModel {
   async getById(_id: ObjectId): Promise<Todo | null> {
     // find Task

@@ -1,7 +1,6 @@
-import { ObjectType, Field } from "type-graphql";
-import { prop } from "@typegoose/typegoose";
-import { ObjectId } from "mongodb";
-import { Comment } from "./comment";
+import { ObjectType, Field } from 'type-graphql';
+import { prop } from '@typegoose/typegoose';
+import { ObjectId } from 'mongodb';
 
 @ObjectType()
 export class Todo {
@@ -20,7 +19,7 @@ export class Todo {
   @Field()
   content!: string;
 
-  @prop({ default: "Task description" })
+  @prop({ default: 'Task description' })
   @Field()
   description!: string;
 
@@ -28,7 +27,7 @@ export class Todo {
   @Field()
   isDone!: boolean;
 
-  @prop({ default: "" })
+  @prop({ default: '' })
   @Field()
   assignee!: string;
 
@@ -36,7 +35,7 @@ export class Todo {
   @Field(() => Date)
   startTime!: Date;
 
-  @prop({ default: "" })
+  @prop({ default: '' })
   @Field()
   sharedUsers!: string;
   // sharedUsers!: Array<User>;

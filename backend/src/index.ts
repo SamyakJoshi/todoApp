@@ -1,6 +1,25 @@
-import "reflect-metadata";
+import 'reflect-metadata';
+import 'dotenv/config';
+import fastify from 'fastify';
+import mongoose from './services/mongoose';
+import apollo from './services/apollo';
 
-import bootstrap from "./bootstrap";
-import { config } from "./config";
+const port = process.env.PORT;
 
-bootstrap(config);
+// Activate plugins below:
+const app = fastify({ logger: true });
+app.register(mongoose);
+app.register(apollo);
+
+// Create Server
+const start = async () => {
+  try {
+    app.listen({ port });
+    app.log.info(`Started Server 🚀 🚀 🚀 🚀 🚀  at http://localhost:${port}`);
+  } catch (err) {
+    app.log.error(err);
+    process.exit(1);
+  }
+};
+
+start();

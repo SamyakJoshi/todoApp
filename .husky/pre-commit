@@ -13,7 +13,11 @@ WARNING="⚠️"
 
 # Run ESLint
 echo "***************${YELLOW}${WARNING} Running ESLint...${NC}******************"
-npx eslint .
+npx eslint . && npx eslint --fix .
+
+# Run ESLint to automatically fix issues
+echo "${GREEN}${CHECK_MARK} Fixing ESLint issues...${NC}"
+
 
 # Run Prettier
 echo "Running Prettier..."
