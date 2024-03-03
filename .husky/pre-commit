@@ -16,22 +16,24 @@ echo "***************${YELLOW}${WARNING} Running ESLint...${NC}*****************
 npx eslint . && npx eslint --fix .
 
 # Run ESLint to automatically fix issues
-echo "${GREEN}${CHECK_MARK} Fixing ESLint issues...${NC}"
+echo "***************${GREEN}${CHECK_MARK} Fixed  ESLint issues...${NC}***************************"
 
 
 # Run Prettier
-echo "Running Prettier..."
+echo "***************${YELLOW}${WARNING}Running Prettier...*********************"
 npx prettier --check . && npx prettier --write . 
 
 # Run Prettier to fix formatting issues
 
-echo "${GREEN}Fixing formatting issues with Prettier...${NC}"
+echo "****************${GREEN}Fixed formatting issues with Prettier...${NC}*******************"
 
 
 # Run lint-staged
-echo "Running lint-staged..."
+echo "******************Running lint-staged...***********************"
 npx lint-staged
 
 
 # Display message indicating completion
-echo "***********************${GREEN}${CHECK_MARK}Pre-commit checks completed successfully.${NC}*************"
+echo "**********************************************************************************"
+echo "*     ${GREEN}${CHECK_MARK}Pre-commit checks completed successfully.${NC}        *"
+echo "**********************************************************************************"
