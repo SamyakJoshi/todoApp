@@ -1,7 +1,6 @@
-
-import { ObjectType, Field } from "type-graphql";
-import { prop } from "@typegoose/typegoose";
-import { ObjectId } from "mongodb";
+import { ObjectType, Field } from 'type-graphql';
+import { prop } from '@typegoose/typegoose';
+import { ObjectId } from 'mongodb';
 
 @ObjectType()
 export class User {
@@ -12,7 +11,6 @@ export class User {
   @Field(() => Date)
   createdAt!: Date;
 
-
   @prop()
   @Field()
   username!: string;
@@ -21,16 +19,11 @@ export class User {
   @Field()
   password!: string;
 
-
   @prop()
   @Field()
   email!: string;
 
-
-  
- 
-
-
-
-
+  @prop()
+  @Field()
+  profilePic!: string;
 }
