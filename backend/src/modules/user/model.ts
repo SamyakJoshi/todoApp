@@ -10,6 +10,10 @@ export const UserMongooseModel = getModelForClass(User);
 
 @Service()
 export default class UserModel {
+  async exists(_id: ObjectId): Promise<boolean> {
+    return await UserMongooseModel.exists({ _id }).lean();
+  }
+
   async getUserById(_id: ObjectId): Promise<User | null> {
     // Use mongoose as usual
     return UserMongooseModel.findById(_id).lean().exec();
