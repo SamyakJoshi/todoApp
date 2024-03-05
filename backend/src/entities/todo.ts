@@ -1,6 +1,7 @@
 import { ObjectType, Field } from 'type-graphql';
 import { prop } from '@typegoose/typegoose';
 import { ObjectId } from 'mongodb';
+import { User } from './user';
 
 @ObjectType()
 export class Todo {
@@ -30,6 +31,10 @@ export class Todo {
   @prop({ required: true })
   @Field()
   assignee!: string;
+
+  @prop({ localField: 'assignee', foreignField: 'users._id', type: ObjectId, ref: User })
+  @Field({ nullable: true })
+  user: User;
 
   @prop({ default: Date.now() })
   @Field(() => Date)
