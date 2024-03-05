@@ -1,20 +1,18 @@
-import { Resolver, Arg, Query, Mutation, ID } from "type-graphql";
-import { Service } from "typedi";
+import { Resolver, Arg, Query, Mutation } from "type-graphql";
+import Container from "typedi";
 import { ObjectId } from "mongodb";
 
 import { Todo } from "../../entities";
 import TodoService from "./service";
 import { finishTaskInput, NewTodoInput } from "./input";
-import CommentService from "../comment/service";
 
 /*
   IMPORTANT: Your business logic must be in the service!
 */
 
-@Service() // Dependencies injection
 @Resolver((of) => Todo)
 export default class TodoResolver {
-  constructor(private readonly todoService: TodoService) {}
+  private readonly todoService = Container.get(TodoService);
 
   @Query((returns) => Todo)
   async getTodo(@Arg("id") id: ObjectId) {
