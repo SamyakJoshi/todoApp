@@ -1,32 +1,28 @@
 import { gql, useQuery } from "@apollo/client";
-import { ITodo } from "./page";
+import ShowTodo from "./todoTable";
+import { GET_TODOS } from "../../graphql";
+import { ITodo } from "../../types";
 
-const getTodos = gql`
-  query {
-    getAllTasks {
-      _id
-      createdAt
-      updatedAt
-      content
-      description
-      isDone
-      assignee
-      sharedUsers
-    }
-  }
-`;
 function ToDoItem() {
-  const { data } = useQuery(getTodos);
-  const value: ITodo[] = data.getAllTasks;
+  const { data, error } = useQuery(GET_TODOS);
+  const value: ITodo[] = data?.getAllTasks;
 
+  if (error) return `Error! ${error.message}`;
   return (
     <>
-      <div className="border-solid  shadow-2xl p-4">
-        {value?.map((item: ITodo) => (
-          <div>
-            <h2 className="font-bold">{item.content}</h2>
-            <span className="text-base">{item.description}</span>
-          </div>
+      <div className="">
+        <tr className="border-solid  shadow-xl">
+          <td className="p-4">Completed</td>
+
+          <td className="p-4">Id</td>
+          <td className="p-4 ">Content</td>
+          <td className="p-4">Description</td>
+          <td className="p-4">Assignee</td>
+          <td className="p-4">Is done</td>
+          <td className="p-4">Actions</td>
+        </tr>
+        {value?.map((item, index) => (
+          <ShowTodo item={item} index={index} />
         ))}
       </div>
     </>

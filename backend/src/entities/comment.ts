@@ -1,4 +1,3 @@
-
 import { ObjectType, Field } from "type-graphql";
 import { prop } from "@typegoose/typegoose";
 import { ObjectId } from "mongodb";
@@ -8,9 +7,6 @@ export class Comment {
   @Field()
   readonly _id!: ObjectId;
 
- 
-
-
   @prop()
   @Field()
   user!: string;
@@ -19,13 +15,7 @@ export class Comment {
   @Field()
   task!: string;
 
-
   @prop()
   @Field()
   text!: string;
- 
-
-
-
-
 }

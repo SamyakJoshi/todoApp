@@ -3,16 +3,23 @@ import { ObjectId } from "mongodb";
 
 import { Todo } from "../../entities";
 import { finishTaskInput, NewTodoInput } from "./input";
+import { Service } from "typedi";
 
 // This generates the mongoose model for us
 export const TodoMongooseModel = getModelForClass(Todo);
 
+@Service()
 export default class TodoModel {
   async getById(_id: ObjectId): Promise<Todo | null> {
     // find Task
     return TodoMongooseModel.findById(_id).lean().exec();
   }
-  
+
+  async getWithoutId(): Promise<Todo[] | null> {
+    // find Task
+    return TodoMongooseModel.find().lean().exec();
+  }
+
   // create Task
   async create(data: NewTodoInput): Promise<Todo> {
     const todo = new TodoMongooseModel(data);
@@ -21,22 +28,22 @@ export default class TodoModel {
 
   // update Task
   async setTaskdone(data: finishTaskInput): Promise<Todo | null> {
-    const filter = { _id: data.task , assignee :data.user};
+    const filter = { _id: data.task, assignee: data.user };
     const update = { isDone: true };
-    
+
     return TodoMongooseModel.findOneAndUpdate(filter, update);
   }
 
   // delete
   async deleteTask(data: finishTaskInput): Promise<Todo | null> {
-    const filter = { _id: data.task , assignee :data.user};
-      return TodoMongooseModel.findOneAndDelete(filter);
+    const filter = { _id: data.task, assignee: data.user };
+    return TodoMongooseModel.findOneAndDelete(filter);
   }
 
   async shareTask(data: finishTaskInput): Promise<Todo | null> {
-    const filter = { _id: data.task};
+    const filter = { _id: data.task };
     const update = { sharedUsers: data.user };
-    
+
     return TodoMongooseModel.findOneAndUpdate(filter, update);
   }
 

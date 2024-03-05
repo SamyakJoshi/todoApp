@@ -2,37 +2,11 @@
 import { gql, useQuery } from "@apollo/client";
 import ToDoItem from "./todoItem";
 import AddTodo from "./addItem";
+import { GET_TODOS } from "../../graphql";
 import CommonButton from "../button";
 
-export interface ITodo {
-  _id: string;
-  createdAt: Date;
-  updatedAt: Date;
-  content: string;
-  description: string;
-  isDone: boolean;
-  assignee: string;
-  startTime: Date;
-  sharedUsers: string;
-}
-
-const getTodos = gql`
-  query {
-    getAllTasks {
-      _id
-      createdAt
-      updatedAt
-      content
-      description
-      isDone
-      assignee
-      sharedUsers
-    }
-  }
-`;
-
 function TodoTable() {
-  const { loading } = useQuery(getTodos);
+  const { loading } = useQuery(GET_TODOS);
 
   return (
     <>
@@ -44,7 +18,7 @@ function TodoTable() {
             {/* <AddTodo />
             <ToDoItem /> */}
 
-            <CommonButton variant={"outlined"} size={"medium"} type={"combo"}>
+            <CommonButton variant={"outlined"} size={"medium"} type={"text_icon"}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
