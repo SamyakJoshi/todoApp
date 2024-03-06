@@ -1,8 +1,10 @@
-import { ObjectType, Field } from 'type-graphql';
-import { prop } from '@typegoose/typegoose';
 import { ObjectId } from 'mongodb';
+import autopopulate from 'mongoose-autopopulate';
+import { ObjectType, Field } from 'type-graphql';
+import { Ref, plugin, prop } from '@typegoose/typegoose';
 import { User } from './user';
 
+@plugin(autopopulate)
 @ObjectType()
 export class Todo {
   @Field()
@@ -32,7 +34,13 @@ export class Todo {
   @Field()
   assignee!: string;
 
-  @prop({ localField: 'assignee', foreignField: 'users._id', type: ObjectId, ref: User })
+  @prop({
+    ref: 'User',
+    justOne: true,
+    autopopulate: true,
+    foreignField: '_id',
+    localField: 'assignee',
+  })
   @Field({ nullable: true })
   user: User;
 

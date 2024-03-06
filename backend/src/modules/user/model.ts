@@ -3,13 +3,14 @@ import { getModelForClass } from '@typegoose/typegoose';
 import { User } from '../../entities';
 import { NewUserInput } from './input';
 import { Service } from 'typedi';
+import { ObjectId } from 'mongoose';
 
 // This generates the mongoose model for us
 export const UserMongooseModel = getModelForClass(User);
 
 @Service()
 export default class UserModel {
-  async exists(_id: string): Promise<boolean> {
+  async exists(_id: ObjectId): Promise<boolean> {
     return await UserMongooseModel.exists({ _id }).lean();
   }
 
