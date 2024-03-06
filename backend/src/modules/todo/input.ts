@@ -1,6 +1,6 @@
 import { Field, InputType } from 'type-graphql';
 import { MaxLength, MinLength } from 'class-validator';
-import { ObjectId } from 'mongoose';
+import { ObjectId } from 'mongodb';
 
 @InputType()
 export class NewTodoInput {

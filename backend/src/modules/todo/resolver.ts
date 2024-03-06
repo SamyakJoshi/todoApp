@@ -1,6 +1,6 @@
 import { Resolver, Arg, Query, Mutation } from 'type-graphql';
 import Container from 'typedi';
-import { ObjectId } from 'mongoose';
+import { ObjectId } from 'mongodb';
 
 import { Todo } from '../../entities';
 import TodoService from './service';

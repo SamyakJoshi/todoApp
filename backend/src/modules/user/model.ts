@@ -3,7 +3,7 @@ import { getModelForClass } from '@typegoose/typegoose';
 import { User } from '../../entities';
 import { NewUserInput } from './input';
 import { Service } from 'typedi';
-import { ObjectId } from 'mongoose';
+import { ObjectId } from 'mongodb';
 
 // This generates the mongoose model for us
 export const UserMongooseModel = getModelForClass(User);

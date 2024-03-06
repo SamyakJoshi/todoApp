@@ -1,5 +1,5 @@
 import { Service } from 'typedi';
-import { ObjectId } from 'mongoose';
+import { ObjectId } from 'mongodb';
 
 import TodoModel from './model';
 import { Todo } from '../../entities';

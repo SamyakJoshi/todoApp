@@ -1,5 +1,5 @@
 import { getModelForClass } from '@typegoose/typegoose';
-import { ObjectId } from 'mongoose';
+import { ObjectId } from 'mongodb';
 
 import { Todo } from '../../entities';
 import { finishTaskInput, NewTodoInput } from './input';
