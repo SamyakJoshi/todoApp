@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb';
 import autopopulate from 'mongoose-autopopulate';
 import { ObjectType, Field } from 'type-graphql';
-import { Ref, plugin, prop } from '@typegoose/typegoose';
+import { plugin, prop } from '@typegoose/typegoose';
 import { User } from './user';
 
 @plugin(autopopulate)
