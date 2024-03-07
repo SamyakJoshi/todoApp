@@ -1,5 +1,6 @@
-import { Field, InputType } from "type-graphql";
-import { MaxLength, MinLength } from "class-validator";
+import { Field, InputType } from 'type-graphql';
+import { MaxLength, MinLength } from 'class-validator';
+import { ObjectId } from 'mongodb';
 
 @InputType()
 export class NewTodoInput {
@@ -8,12 +9,11 @@ export class NewTodoInput {
   @MinLength(1)
   content: string;
 
-
   //////////
   @Field()
   @MaxLength(300)
   @MinLength(1)
-  assignee: string;
+  assignee: ObjectId;
   //////////
   @Field()
   @MaxLength(300)

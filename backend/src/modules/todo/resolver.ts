@@ -1,10 +1,10 @@
-import { Resolver, Arg, Query, Mutation } from "type-graphql";
-import Container from "typedi";
-import { ObjectId } from "mongodb";
+import { Resolver, Arg, Query, Mutation } from 'type-graphql';
+import Container from 'typedi';
+import { ObjectId } from 'mongodb';
 
-import { Todo } from "../../entities";
-import TodoService from "./service";
-import { finishTaskInput, NewTodoInput } from "./input";
+import { Todo } from '../../entities';
+import TodoService from './service';
+import { finishTaskInput, NewTodoInput } from './input';
 
 /*
   IMPORTANT: Your business logic must be in the service!
@@ -15,13 +15,13 @@ export default class TodoResolver {
   private readonly todoService = Container.get(TodoService);
 
   @Query((returns) => Todo)
-  async getTodo(@Arg("id") id: ObjectId) {
+  async getTodo(@Arg('id') id: ObjectId) {
     const todo = await this.todoService.getById(id);
 
     return todo;
   }
   @Query((returns) => Todo)
-  async getTodoList(@Arg("id") id: ObjectId) {
+  async getTodoList(@Arg('id') id: ObjectId) {
     const todo = await this.todoService.getById(id);
 
     return todo;
@@ -29,55 +29,39 @@ export default class TodoResolver {
 
   @Query((returns) => [Todo])
   async getAllTodoList() {
-    const todo = await this.todoService.getiWithoutId();
-    // console.log("todo: ", todo);
-
-    return todo;
+    return this.todoService.getiWithoutId();
   }
 
   @Query((returns) => [Todo])
   async getAllTasks() {
-    const Tasks = await this.todoService.getAllTasks();
-
-    // console.log("Tasks: ", Tasks);
-    return Tasks;
+    return this.todoService.getAllTasks();
   }
 
   @Query((returns) => [Todo])
-  async getUserAssignedTasks(@Arg("id") id: ObjectId) {
-    console.log(id);
-    const Tasks = await this.todoService.getUserAssignedTasks(id);
-    return Tasks;
+  async getUserAssignedTasks(@Arg('id') id: ObjectId) {
+    return this.todoService.getUserAssignedTasks(id);
   }
 
   @Mutation((returns) => Todo)
-  async createTodo(
-    @Arg("createTodoData") createTodoData: NewTodoInput
-  ): Promise<Todo> {
+  async createTodo(@Arg('createTodoData') createTodoData: NewTodoInput): Promise<Todo> {
     const todo = await this.todoService.addTodo(createTodoData);
     return todo;
   }
 
   @Mutation((returns) => Todo)
-  async setTakDone(
-    @Arg("setTakDone") task: finishTaskInput
-  ): Promise<Todo | null> {
+  async setTakDone(@Arg('setTakDone') task: finishTaskInput): Promise<Todo | null> {
     const todo = await this.todoService.setTakDone(task);
     return todo;
   }
 
   @Mutation((returns) => Todo)
-  async deleteTask(
-    @Arg("taskToDelete") task: finishTaskInput
-  ): Promise<Todo | null> {
+  async deleteTask(@Arg('taskToDelete') task: finishTaskInput): Promise<Todo | null> {
     const todo = await this.todoService.deleteTask(task);
     return todo;
   }
 
   @Mutation((returns) => Todo)
-  async shareTask(
-    @Arg("taskToshare") task: finishTaskInput
-  ): Promise<Todo | null> {
+  async shareTask(@Arg('taskToshare') task: finishTaskInput): Promise<Todo | null> {
     const todo = await this.todoService.shareTask(task);
     return todo;
   }
