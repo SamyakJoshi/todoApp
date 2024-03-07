@@ -1,16 +1,18 @@
 "use server";
 import 'server-only';
-interface IRequestBody {
+export interface IRequestBody {
   query: string,
-  variables?: {}
 }
 
-export const fetchGraphQl = async (req: IRequestBody) => {
-  const { query, variables = {} } = req;
+export interface IRequestBodyWithVariable<TVariables> extends IRequestBody {
+  variables: TVariables;
+}
+
+export const fetchGraphQl = async <TVariables, TData>(req: IRequestBody | IRequestBodyWithVariable<TVariables>): Promise<TData> => {
 
   const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL, {
     method: "POST",
-    body: variables ? JSON.stringify({ query, variables }) : JSON.stringify({ query }),
+    body: JSON.stringify(req),
     headers: { "Content-Type": "application/json" },
   });
   const res = await response.json();

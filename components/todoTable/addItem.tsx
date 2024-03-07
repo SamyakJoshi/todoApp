@@ -5,26 +5,9 @@ import { ADD_TODO, GET_TODOS } from "../../graphql";
 import { addTodo } from "@/lib/actions/todo";
 
 const AddItem=async()=> {
-  // const [title, setTitle] = useState("");
-  // const [assignee, setAssignee] = useState("");
-  // const [description, setDescription] = useState("");
 
-  const reqBody={content: "task testing", description:"this task is for testing", assignee:"jaya patidar"}
+const reqBody={content: "task testing", description:"this task is for testing", assignee:"jaya patidar"}
 const res=await addTodo(reqBody);
-console.log("response========",res)
-
-  // const [addTodo] = useMutation(ADD_TODO, {
-  //   variables: { content: title, description, assignee },
-  //   refetchQueries: [{ query: GET_TODOS }],
-  // });
-
-  
-
-    // Resetting the data.
-    // setTitle("");
-    // setAssignee("");
-    // setDescription("");
-  // };
 
   return (
     <>

@@ -5,8 +5,17 @@ export interface AddTodoReqBody {
 };
 
 export interface AddTodoResponse {
-    createTodo: {
-        assignee: string;
-        description: string;
-    };
+    createTodo: AddTodoResponseDetail;
 };
+
+export interface AddTodoResponseDetail {
+    assignee: string;
+    content: string;
+    description: string;
+    _id: string;
+    createdAt: string;
+    isDone: boolean;
+    sharedUsers: string;
+    startTime: string;
+    updatedAt: string;
+}

@@ -9,38 +9,38 @@ interface IProps {
 }
 
 const ShowTodo = ({ item, index }: IProps) => {
-  const [setTaskDone] = useMutation(SET_TASK_DONE, {
-    refetchQueries: [{ query: GET_TODOS }],
-  });
+  // const [setTaskDone] = useMutation(SET_TASK_DONE, {
+  //   refetchQueries: [{ query: GET_TODOS }],
+  // });
   // const [deleteTask] = useMutation(DELETE_TASK, {
   //   refetchQueries: [{ query: GET_TODOS }],
   // });
 
-  const handleCheckboxChange = async () => {
-    try {
-      await setTaskDone({
-        variables: { task: item._id, user: item.assignee },
-      });
-    } catch (error) {
-      console.error("Error setting task as done:", error);
-    }
-  };
+  // const handleCheckboxChange = async () => {
+  //   try {
+  //     await setTaskDone({
+  //       variables: { task: item._id, user: item.assignee },
+  //     });
+  //   } catch (error) {
+  //     console.error("Error setting task as done:", error);
+  //   }
+  // };
 
-  const handleDelete = async () => {
-    try {
-      await deleteTask({
-        variables: { task: item._id, user: item.assignee },
-      });
-    } catch (error) {
-      console.error("Error setting task as done:", error);
-    }
-  };
+  // const handleDelete = async () => {
+  //   try {
+  //     await deleteTask({
+  //       variables: { task: item._id, user: item.assignee },
+  //     });
+  //   } catch (error) {
+  //     console.error("Error setting task as done:", error);
+  //   }
+  // };
 
   return (
     <tr className="border-solid shadow-xl">
       <input
         type="checkbox"
-        onChange={handleCheckboxChange}
+        // onChange={handleCheckboxChange}
         checked={item.isDone}
       />
       <td className="p-4">{index + 1}</td>
@@ -54,7 +54,7 @@ const ShowTodo = ({ item, index }: IProps) => {
       <td className="p-2">
         <img
           src="assets/delete.svg"
-          onClick={handleDelete}
+          // onClick={handleDelete}
           className="cursor-pointer"
         />
       </td>
