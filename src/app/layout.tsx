@@ -1,16 +1,22 @@
-import { Inter } from "next/font/google";
-import dynamic from "next/dynamic";
-import "./globals.css";
+import { ReactNode } from 'react';
+import { Inter } from 'next/font/google';
+import dynamic from 'next/dynamic';
+import './globals.css';
 
-const ApolloProvider = dynamic(() => import("@/components/apolloProvider"));
+const ApolloProvider = dynamic(() => import('@/components/apolloProvider'));
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
+/**
+ * Main layout
+ * @param {ReactNode} children
+ * @return {JSX.Element}
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
-}>) {
+  children: ReactNode;
+}>): JSX.Element {
   return (
     <html lang="en">
       <ApolloProvider>

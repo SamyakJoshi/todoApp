@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+. "${0%/*}/h"
+
+npm run build
+ 
+ 
+GREEN='\033[1;32m'
+BLUE='\033[1;34m'
+YELLOW='\033[1;33m'
+RESET='\033[0m'
+ 
+# Build successful message
+echo -e "${GREEN}==========================================================================🚀${RESET}"
+echo -e "${GREEN}                    Build successful! 🚀${RESET}"
+echo -e "${BLUE}     Congratulations, your code has been compiled without errors.${RESET}"
+echo -e "${BLUE} It's time to celebrate your hard work and continue building amazing things!${RESET}"
+echo -e "${YELLOW}                     Happy coding! 🎉${RESET}"
+echo -e "${GREEN}==========================================================================🚀${RESET}"

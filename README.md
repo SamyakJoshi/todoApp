@@ -11,20 +11,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, run the development server:
 
-Backend 
+Backend
 
-npm install 
+npm install
 
 ```bash
-pnpm run dev:backend 
-#or 
+pnpm run dev:backend
+#or
 cd backend npm run start:dev
 
 ```
 
-Frontend 
+Frontend
 
-pnpm install 
+pnpm install
 
 ```bash
 pnpm run dev

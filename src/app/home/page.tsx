@@ -1,9 +1,9 @@
-"use client";
-import React from "react";
-import { gql, useMutation, useQuery } from "@apollo/client";
-import { useState } from "react";
-import Modal from "react-modal";
-import { ADD_USER, GET_USERS } from "../../../graphql";
+'use client';
+
+import React, { useState } from 'react';
+import { useMutation, useQuery } from '@apollo/client';
+import Modal from 'react-modal';
+import { ADD_USER, GET_USERS } from '../../../graphql';
 
 interface User {
   _id: string;
@@ -16,9 +16,9 @@ const UserList: React.FC = () => {
   const [addUser] = useMutation(ADD_USER);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-    email: "",
+    username: '',
+    password: '',
+    email: '',
   });
 
   if (loading) return <p>Loading...</p>;
@@ -47,13 +47,13 @@ const UserList: React.FC = () => {
           password: formData.password,
           email: formData.email,
         },
-        refetchQueries:[{query:GET_USERS}]
+        refetchQueries: [{ query: GET_USERS }],
       });
-      setFormData({ username: "", password: "", email: "" });
+      setFormData({ username: '', password: '', email: '' });
       //  refetch(); // Refresh the user list after adding a new user
       closeModal(); // Close the modal after adding a new user
-    } catch (error) {
-      console.error("Error adding user:", error);
+    } catch (err) {
+      console.error('Error adding user:', err);
     }
   };
 
@@ -71,10 +71,7 @@ const UserList: React.FC = () => {
         <h2 className="text-2xl font-bold mb-4 text-center">Users</h2>
         <ul>
           {users.map((user) => (
-            <li
-              key={user._id}
-              className="border-b py-4 flex items-center justify-between"
-            >
+            <li key={user._id} className="border-b py-4 flex items-center justify-between">
               <div>
                 <p className="text-lg font-semibold">User Name : {user.username}</p>
                 <p className="text-gray-600">User Email :{user.email}</p>
@@ -120,16 +117,10 @@ const UserList: React.FC = () => {
               placeholder="Email"
               className="block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 mb-4"
             />
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-            >
+            <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
               Add User
             </button>
-            <button
-              className="bg-slate-200  py-2 px-4 rounded mx-2"
-              onClick={closeModal}
-            >
+            <button className="bg-slate-200  py-2 px-4 rounded mx-2" onClick={closeModal}>
               cancle
             </button>
           </form>

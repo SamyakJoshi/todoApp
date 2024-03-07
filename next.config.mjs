@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 
-// It will redirect to /todo 
+// It will redirect to /todo
 const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/",
-        destination: "/todo",
+        source: '/',
+        destination: '/todo',
         permanent: true,
       },
     ];
@@ -14,8 +14,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-
-
-
-
-
