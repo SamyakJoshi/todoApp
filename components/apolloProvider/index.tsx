@@ -13,4 +13,5 @@ const CustomApolloProvider = ({ children }: IProps) => {
   return <ApolloProvider client={client}>{children}</ApolloProvider>;
 };
 
+
 export default CustomApolloProvider;
