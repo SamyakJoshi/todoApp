@@ -100,11 +100,8 @@
     // Unsed Var issue with Typescript
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
-    "eslint no-unreachable": "error",
-    "eslint default-param-last": ["error"],
     // Let Prettier Handle
     "indent": "off",
-    "eslint no-debugger": "error",
     "operator-linebreak": "off",
     "quote-props": "off",
     "react/jsx-curly-newline": "off",
