@@ -1,7 +1,5 @@
 import { VariantProps, cva } from 'class-variance-authority';
 
-export type BaseModalProps = VariantProps<typeof baseModal>;
-
 export const baseModal = cva([], {
   variants: {
     height: {
@@ -91,3 +89,4 @@ export const baseModal = cva([], {
     boxShadow: 'md',
   },
 });
+export type BaseModalProps = VariantProps<typeof baseModal>;

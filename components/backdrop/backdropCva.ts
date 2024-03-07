@@ -1,6 +1,5 @@
 import { VariantProps, cva } from 'class-variance-authority';
 
-export type BaseBackdropProps = VariantProps<typeof backdrop>;
 export const backdrop = cva(['fixed inset-0 flex'], {
   variants: {
     color: {
@@ -51,3 +50,4 @@ export const backdrop = cva(['fixed inset-0 flex'], {
     alignmentY: 'center',
   },
 });
+export type BaseBackdropProps = VariantProps<typeof backdrop>;

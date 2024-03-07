@@ -1,6 +1,6 @@
-import { PropsWithChildren, ReactNode } from 'react';
-import { BaseBackdropProps, backdrop } from './backdropVariant';
+import React, { PropsWithChildren, ReactNode } from 'react';
 import { twMerge, ClassNameValue } from 'tailwind-merge';
+import { BaseBackdropProps, backdrop } from './backdropCva';
 
 interface IModalBackdropProps extends BaseBackdropProps, PropsWithChildren {
   onClose?: VoidFunction;
@@ -10,13 +10,21 @@ interface IModalBackdropProps extends BaseBackdropProps, PropsWithChildren {
 /**
  * ModalBackdrop component props
  * @param {IModalBackdropProps} props - Component props
- * @returns {ReactNode} - Rendered component
+ * @return {ReactNode} - Rendered component
  */
 function ModalBackdrop(props: IModalBackdropProps): ReactNode {
   const { children, onClose, className, ...rest } = props;
 
   return (
-    <div className={twMerge(className, backdrop(rest))} onClick={onClose}>
+    <div
+      className={twMerge(backdrop(rest), className)}
+      onClick={onClose}
+      onKeyDown={(e) => {
+        if (e.key === 'Escape' && onClose) onClose();
+      }}
+      role="button"
+      tabIndex={0}
+    >
       {children}
     </div>
   );
