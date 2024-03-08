@@ -1,4 +1,4 @@
-import { gql } from "graphql-tag";
+import { gql } from '@apollo/client';
 
 export const GET_TODOS = gql`
   query {
@@ -13,18 +13,8 @@ export const GET_TODOS = gql`
 `;
 
 export const ADD_TODO = gql`
-  mutation AddTodo(
-    $content: String!
-    $assignee: String!
-    $description: String!
-  ) {
-    createTodo(
-      createTodoData: {
-        content: $content
-        assignee: $assignee
-        description: $description
-      }
-    ) {
+  mutation AddTodo($content: String!, $assignee: String!, $description: String!) {
+    createTodo(createTodoData: { content: $content, assignee: $assignee, description: $description }) {
       assignee
       description
     }
@@ -49,13 +39,7 @@ export const DELETE_TASK = gql`
 
 export const ADD_USER = gql`
   mutation AddUser($username: String!, $password: String!, $email: String!) {
-    createUser(
-      createUserData: {
-        username: $username
-        password: $password
-        email: $email
-      }
-    ) {
+    createUser(createUserData: { username: $username, password: $password, email: $email }) {
       username
     }
   }

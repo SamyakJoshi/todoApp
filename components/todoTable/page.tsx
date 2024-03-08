@@ -1,27 +1,28 @@
-"use client";
-import { gql, useQuery } from "@apollo/client";
-import ToDoItem from "./todoItem";
-import AddTodo from "./addItem";
-import { GET_TODOS } from "../../graphql";
+'use client';
 
+import { useQuery } from '@apollo/client';
+import ToDoItem from './todoItem';
+import AddTodo from './addItem';
+import { GET_TODOS } from '../../graphql';
 
-
-function TodoTable() {
+/**
+ *Todo Table
+ * @return {JSX.Element}
+ */
+function TodoTable(): JSX.Element {
   const { loading } = useQuery(GET_TODOS);
 
   return (
-    <>
+    <div>
       {loading ? (
         <span>Loading</span>
       ) : (
-        <>
-          <div className="flex flex-col items-center">
-            <AddTodo />
-            <ToDoItem />
-          </div>
-        </>
+        <div className="flex flex-col items-center">
+          <AddTodo />
+          <ToDoItem />
+        </div>
       )}
-    </>
+    </div>
   );
 }
 
