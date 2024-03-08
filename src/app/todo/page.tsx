@@ -1,12 +1,10 @@
 
-import TodoTable from "../../../components/todoTable/page";
-import Header from "../../../components/header/page";
+import Header from "../../components/header";
 
 function Demo() {
   return (
     <>
       <Header />
-      <TodoTable />
     </>
   );
 }
