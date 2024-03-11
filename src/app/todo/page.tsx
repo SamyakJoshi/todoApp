@@ -1,15 +1,10 @@
-import TodoTable from '../../../components/todoTable/page';
-import Header from '../../../components/header/page';
 
-/**
- * Demo page
- * @return {JSX.Element}
- */
-function Demo(): JSX.Element {
+import Header from "../../components/header";
+
+function Demo() {
   return (
     <>
       <Header />
-      <TodoTable />
     </>
   );
 }

@@ -1,9 +1,9 @@
-import { getModelForClass } from '@typegoose/typegoose';
-import { ObjectId } from 'mongodb';
-import { Comment } from '../../entities/comment';
+import { getModelForClass } from "@typegoose/typegoose";
+import { ObjectId } from "mongodb";
+import { Comment } from "../../entities/comment";
 
-import { NewCommentInput } from './input';
-import { Service } from 'typedi';
+import { NewCommentInput } from "./input";
+import { Service } from "typedi";
 
 // This generates the mongoose model for us
 export const CommentMongooseModel = getModelForClass(Comment);
