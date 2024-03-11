@@ -1,5 +1,3 @@
-import { gql } from "graphql-tag";
-
 export const GET_TODOS = `
   query {
     getAllTasks {
@@ -47,7 +45,7 @@ export const DELETE_TASK = `
   }
 `;
 
-export const ADD_USER = gql`
+export const ADD_USER = `
   mutation AddUser($username: String!, $password: String!, $email: String!) {
     createUser(
       createUserData: {
@@ -61,7 +59,7 @@ export const ADD_USER = gql`
   }
 `;
 
-export const GET_USERS = gql`
+export const GET_USERS = `
   query {
     getUsers {
       _id

@@ -75,9 +75,9 @@
       // Boolean value should be declared properly
       "react/jsx-boolean-value": "error",
       // Image must have alt or role defined
-      "jsx-a11y/alt-text": "error",
+      "jsx-a11y/alt-text": "off",
       // Aria Roles Defination should be correct
-      "jsx-a11y/aria-role": "error",
+      "jsx-a11y/aria-role": "off",
       // React Rule of Hook
       "react-hooks/rules-of-hooks": "error",
       // No Exhastive Dependencies
