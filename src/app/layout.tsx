@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import { Inter } from 'next/font/google';
 import dynamic from 'next/dynamic';
 import './globals.css';
-import React, { PropsWithChildren, ReactElement } from 'react';
+import React, { PropsWithChildren } from 'react';
 
 const ApolloProvider = dynamic(() => import('@/components/apolloProvider'));
 
