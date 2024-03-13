@@ -1,9 +1,9 @@
-import { Service } from "typedi";
-import { ObjectId } from "mongodb";
+import { Service } from 'typedi';
+import { ObjectId } from 'mongodb';
 
-import TodoModel from "./model";
-import { Todo } from "../../entities";
-import { finishTaskInput, NewTodoInput } from "./input";
+import TodoModel from './model';
+import { Todo } from '../../entities';
+import { finishTaskInput, NewTodoInput } from './input';
 
 @Service()
 export default class TodoService {
