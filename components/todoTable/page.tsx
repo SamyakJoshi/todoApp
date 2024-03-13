@@ -13,11 +13,11 @@ function TodoTable(): JSX.Element {
   const { loading } = useQuery(GET_TODOS);
 
   return (
-    <div>
+    <div p-5 bg-gray-100>
       {loading ? (
         <span>Loading</span>
       ) : (
-        <div className="flex flex-col items-center">
+        <div className=" p-5 bg-gray-100 flex flex-col items-center">
           <AddTodo />
           <ToDoItem />
         </div>

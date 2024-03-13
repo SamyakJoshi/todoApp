@@ -11,7 +11,7 @@ const ThemeSetting = () => {
 
   return (
     <div onClick={handleClick} role="button">
-      <Image src="assets/theme.svg" alt="themeSwitcher" className="w-8 h-8 text-primary" />
+      <Image src="assets/theme.svg" alt="themeSwitcher" className=" text-primary" width={30} height={30} />
     </div>
   );
 };

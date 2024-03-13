@@ -7,10 +7,10 @@ import Header from '../../../components/header/page';
  */
 function Demo(): JSX.Element {
   return (
-    <>
+    <div className="p-5 bg-gray-300  min-height: 100vh">
       <Header />
       <TodoTable />
-    </>
+    </div>
   );
 }
 
