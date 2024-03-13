@@ -18,6 +18,6 @@ export const fetchGraphQl = async <TVariables, TData>(
     body: JSON.stringify(req),
     headers: { 'Content-Type': 'application/json' },
   });
-  const res = await response.json();
+  const res = (await response.json()) as TData;
   return res;
 };

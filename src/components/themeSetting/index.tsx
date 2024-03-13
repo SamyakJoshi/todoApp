@@ -15,6 +15,6 @@ const ThemeSetting = () => {
       <Image src="assets/theme.svg" className="w-8 h-8 text-primary" alt="theme image" />
     </div>
   );
-};
+}
 
 export default ThemeSetting;

@@ -1,4 +1,4 @@
-export interface ITodo {
+export interface Todo {
   content: string;
   description: string;
   isDone: boolean;
