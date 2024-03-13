@@ -3,9 +3,9 @@ import Header from '../../components/header';
 
 /**
  * Main page
- * @return {JSX.Element}
+ * @returns JSX.Element
  */
-function Demo() {
+function Demo():JSX.Element {
   return <Header />;
 }
 

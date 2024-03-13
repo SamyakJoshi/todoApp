@@ -1,14 +1,13 @@
 import { ADD_TODO, GET_TODOS } from '@/graphql';
-import { IRequestBody, fetchGraphQl } from '..';
-
-import { AddTodoReqBody, AddTodoResponse, AddTodoResponseDetail } from './interface';
+import { type RequestBody, fetchGraphQl } from '..';
+import { type AddTodoReqBody, type AddTodoResponse, type AddTodoResponseDetail } from './interface';
 
 // Baser Response Interface
-interface IBaseGraphqlResponse<T = unknown> {
+interface BaseGraphqlResponse<T = unknown> {
   data: T;
 }
 
-interface ITaskData {
+interface TaskData {
   _id: string;
   assignee: string;
   content: string;
@@ -20,13 +19,13 @@ interface ITaskData {
   updatedAt: string;
 }
 
-interface IAllTaskData {
-  getAllTasks: ITaskData[];
+interface AllTaskData {
+  getAllTasks: TaskData[];
 }
 
 // To fetch all
-export const getTodo = async (): Promise<ITaskData[]> => {
-  const res = await fetchGraphQl<IRequestBody, IBaseGraphqlResponse<IAllTaskData>>({
+export const getTodo = async (): Promise<TaskData[]> => {
+  const res = await fetchGraphQl<RequestBody, BaseGraphqlResponse<AllTaskData>>({
     query: GET_TODOS,
   });
   return res.data.getAllTasks;
@@ -34,7 +33,7 @@ export const getTodo = async (): Promise<ITaskData[]> => {
 
 // To add new TODO
 export const addTodo = async (reqBody: AddTodoReqBody): Promise<AddTodoResponseDetail> => {
-  const res = await fetchGraphQl<AddTodoReqBody, IBaseGraphqlResponse<AddTodoResponse>>({
+  const res = await fetchGraphQl<AddTodoReqBody, BaseGraphqlResponse<AddTodoResponse>>({
     query: ADD_TODO,
     variables: reqBody,
   });
