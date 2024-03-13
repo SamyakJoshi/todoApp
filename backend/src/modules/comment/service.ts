@@ -1,9 +1,9 @@
-import { Service } from 'typedi';
-import { ObjectId } from 'mongodb';
+import { Service } from "typedi";
+import { ObjectId } from "mongodb";
 
-import CommentModel from './model';
-import { Comment } from '../../entities';
-import { NewCommentInput } from './input';
+import CommentModel from "./model";
+import { Comment } from "../../entities";
+import { NewCommentInput } from "./input";
 
 @Service()
 export default class CommentService {
