@@ -4,49 +4,35 @@
   "description": "typescript node js graphql mongo db todo list",
   "main": "index.js",
   "scripts": {
-    "start:dev": "ts-node-dev --respawn --transpileOnly ./src/index.ts",
-    "build": "rimraf ./build && tsc",
-    "start": "npm run build && node ./build/index.js",
-    "test": "jest --watch",
-    "coverage": "jest --coverage"
+    "start": "node --es-module-specifier-resolution=node ./src/index.js",
+    "dev": "tsnd --respawn --transpile-only ./src/index.ts"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Rieranthony/ts-graphql-starter.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Rieranthony/ts-graphql-starter/issues"
-  },
-  "homepage": "https://github.com/Rieranthony/ts-graphql-starter#readme",
-  "devDependencies": {
-    "@shelf/jest-mongodb": "^1.1.5",
-    "@types/helmet": "0.0.46",
-    "@types/jest": "^25.2.1",
-    "@types/node": "^13.13.5",
-    "apollo-server-testing": "^2.13.1",
-    "jest": "^26.0.1",
-    "rimraf": "^3.0.2",
-    "ts-jest": "^25.5.1",
-    "ts-node-dev": "^1.0.0-pre.44",
-    "typescript": "^3.8.3"
-  },
   "dependencies": {
-    "@typegoose/typegoose": "^7.0.0",
-    "@types/mongoose": "^5.7.16",
-    "apollo-server-express": "^2.13.0",
-    "body-parser": "^1.19.0",
-    "class-validator": "^0.12.2",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "graphql": "^15.0.0",
-    "helmet": "^3.22.0",
-    "mongoose": "^5.9.13",
-    "reflect-metadata": "^0.1.13",
-    "type-graphql": "^1.0.0-rc.1",
-    "typedi": "^0.8.0"
+    "@apollo/server": "^4.10.0",
+    "@as-integrations/fastify": "^2.1.1",
+    "@typegoose/typegoose": "^12.2.0",
+    "class-validator": "^0.14.1",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.26.1",
+    "fastify-plugin": "^4.5.1",
+    "graphql": "16.8.1",
+    "graphql-scalars": "^1.22.5",
+    "mercurius": "^13.3.3",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.2.0",
+    "mongoose-autopopulate": "^1.1.0",
+    "nodemon": "^3.1.0",
+    "reflect-metadata": "^0.2.1",
+    "type-graphql": "2.0.0-beta.4",
+    "typedi": "^0.10.0"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  },
+  "volta": {
+    "node": "20.11.1"
   }
 }

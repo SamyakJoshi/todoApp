@@ -1,26 +1,31 @@
-import { getModelForClass } from "@typegoose/typegoose";
-import { ObjectId } from "mongodb";
+import { getModelForClass } from '@typegoose/typegoose';
 
-import { User } from "../../entities";
-import { NewUserInput } from "./input";
+import { User } from '../../entities';
+import { NewUserInput } from './input';
+import { Service } from 'typedi';
+import { ObjectId } from 'mongodb';
 
 // This generates the mongoose model for us
 export const UserMongooseModel = getModelForClass(User);
 
+@Service()
 export default class UserModel {
-  async getUserById(_id: ObjectId): Promise<User | null> {
+  async exists(_id: ObjectId): Promise<boolean> {
+    return await UserMongooseModel.exists({ _id }).lean();
+  }
+
+  async getUserById(_id: string): Promise<User | null> {
     // Use mongoose as usual
     return UserMongooseModel.findById(_id).lean().exec();
   }
 
-
-  async getUsers(): Promise<User []| null> {
+  async getUsers(): Promise<User[] | null> {
     // Use mongoose as usual
     return UserMongooseModel.find();
   }
+
   async createUser(data: NewUserInput): Promise<User> {
     const User = new UserMongooseModel(data);
-
     return User.save();
   }
 }
