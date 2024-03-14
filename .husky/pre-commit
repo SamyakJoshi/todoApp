@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Symbols/Emojis
+CHECK_MARK="✅"
+CROSS_MARK="❌"
+WARNING="⚠️"
+
+# Run ESLint
+echo "***************${YELLOW}${WARNING} Running ESLint...${NC}******************"
+npx eslint . 
+
+# Run ESLint to automatically fix issues
+echo "***************${GREEN}${CHECK_MARK} Fixed  ESLint issues...${NC}***************************"
+
+
+# Run Prettier
+echo "***************${YELLOW}${WARNING}Running Prettier...*********************"
+npx prettier --check 
+
+# Run Prettier to fix formatting issues
+
+echo "****************${GREEN}Fixed formatting issues with Prettier...${NC}*******************"
+
+
+# Run lint-staged
+echo "******************Running lint-staged...***********************"
+npx lint-staged
+
+
+# Display message indicating completion
+echo "**********************************************************************************"
+echo "*     ${GREEN}${CHECK_MARK}Pre-commit checks completed successfully.${NC}        *"
+echo "**********************************************************************************"
