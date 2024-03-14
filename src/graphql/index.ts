@@ -1,5 +1,3 @@
-import { gql } from '@apollo/client';
-
 export const GET_TODOS = `
   query {
     getAllTasks {
@@ -19,11 +17,7 @@ export const ADD_TODO = `
     $description: String!
   ) {
     createTodo(
-      createTodoData: {
-        content: $content
-        assignee: $assignee
-        description: $description
-      }
+      createTodoData: { content: $content, assignee: $assignee, description: $description }
     ) {
       assignee
       description
@@ -47,26 +41,23 @@ export const DELETE_TASK = `
   }
 `;
 
-export const ADD_USER = gql`
+export const ADD_USER = `
   mutation AddUser($username: String!, $password: String!, $email: String!) {
-    createUser(
-      createUserData: {
-        username: $username
-        password: $password
-        email: $email
-      }
-    ) {
+    createUser(createUserData: { username: $username, password: $password, email: $email }) {
       username
     }
   }
 `;
 
-export const GET_USERS = gql`
-  query {
+export const GET_USERS = `
+  query Query {
     getUsers {
       _id
+      createdAt
       username
+      password
       email
+      profilePic
     }
   }
 `;

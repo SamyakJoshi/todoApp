@@ -24,6 +24,6 @@ export class User {
   email!: string;
 
   @prop()
-  @Field()
+  @Field({ nullable: true, defaultValue: "https://i.ibb.co/vxQhWth/5694969c3bff03a9678d61c0297db555-1.jpg" })
   profilePic!: string;
 }
