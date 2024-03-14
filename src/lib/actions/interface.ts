@@ -1,10 +1,10 @@
-export interface IAddTodoReqBody {
+export interface AddTodoReqBody {
   content: string;
   assignee: string;
   description: string;
 }
 
-export interface IAddTodoResponseDetail {
+export interface AddTodoResponseDetail {
   assignee: string;
   content: string;
   description: string;
@@ -16,10 +16,10 @@ export interface IAddTodoResponseDetail {
   updatedAt: string;
 }
 
-export interface IAddTodoResponse {
-  createTodo: IAddTodoResponseDetail;
+export interface AddTodoResponse {
+  createTodo: AddTodoResponseDetail;
 }
 
-export interface IBaseGraphqlResponse<T = unknown> {
+export interface BaseGraphqlResponse<T = unknown> {
   data: T;
 }

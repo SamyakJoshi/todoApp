@@ -1,9 +1,8 @@
-import { GET_USERS } from '@/graphql';
+import {  type RequestBody, fetchGraphQl } from '..';
+import { GET_USERS } from '../../graphql';
+import { type BaseGraphqlResponse,  } from './interface';
 
-import {  IRequestBody, fetchGraphQl } from '..';
-import { IBaseGraphqlResponse,  } from './interface';
-
-export interface IUserDetail {
+export interface UserDetail {
   _id: string;
   username: string;
   password: string;
@@ -11,13 +10,13 @@ export interface IUserDetail {
   profilePic: string;
 }
 
-export interface IAllUsersData {
-  getUsers: IUserDetail[];
+export interface AllUsersData {
+  getUsers: UserDetail[];
 }
 
 // Get All Users Data
-export const fetchUsers = async (): Promise<IUserDetail[]> => {
-  const response = await fetchGraphQl<IRequestBody, IBaseGraphqlResponse<IAllUsersData>>({
+export const fetchUsers = async (): Promise<UserDetail[]> => {
+  const response = await fetchGraphQl<RequestBody, BaseGraphqlResponse<AllUsersData>>({
     query: GET_USERS,
   });
   return response.data.getUsers;
