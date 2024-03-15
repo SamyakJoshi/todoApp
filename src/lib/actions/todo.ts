@@ -1,15 +1,10 @@
-import { ADD_TODO, GET_TODOS } from '@/graphql';
-import { type RequestBody, fetchGraphQl } from '..';
+import { fetchGraphQl, type RequestBody } from '..';
+import { ADD_TODO, GET_TODOS } from '../../graphql';
 import {
   type AddTodoReqBody,
   type AddTodoResponse,
-  type AddTodoResponseDetail,
+  type AddTodoResponseDetail, type BaseGraphqlResponse,
 } from './interface';
-
-//Baser Response Interface
-interface BaseGraphqlResponse<T = unknown> {
-  data: T;
-}
 
 interface TaskData {
   _id: string;

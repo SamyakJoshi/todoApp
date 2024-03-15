@@ -1,3 +1,4 @@
+import React from 'react';
 import ThemeSetting from '../themeSetting';
 
 function Header(): JSX.Element {
