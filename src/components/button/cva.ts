@@ -9,8 +9,6 @@ export const button = cva(['font-semibold', 'border'], {
         'bg-button text-typography hover:bg-buttonHover focus:bg-buttonHover',
       outlined: 'border-button text-button',
       text: 'text-typography hover:bg-primary/50',
-      // **or**
-      // primary: "bg-blue-500 text-white border-transparent hover:bg-blue-600",
     },
     size: {
       small: 'text-sm py-1 px-2',

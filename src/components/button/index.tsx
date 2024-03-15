@@ -1,5 +1,5 @@
 import { type PropsWithChildren } from "react";
-import { type BaseButtonProps, button } from "./buttonVariant";
+import { type BaseButtonProps, button } from "./cva";
 
 interface ButtonProps extends BaseButtonProps, PropsWithChildren {}
 
