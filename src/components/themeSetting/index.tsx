@@ -14,6 +14,8 @@ function ThemeSetting(): JSX.Element {
         alt="ThemeSwitcher"
         src="assets/theme.svg"
         className="w-8 h-8 text-primary"
+        width={24}
+        height={24}
       />
     </div>
   );
