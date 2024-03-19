@@ -12,8 +12,10 @@ function ThemeSetting(): JSX.Element {
     <div role="link" onKeyDown={handleClick} tabIndex={0} onClick={handleClick}>
       <Image
         alt="ThemeSwitcher"
-        src="assets/theme.svg"
+        src="/assets/theme.svg"
         className="w-8 h-8 text-primary"
+        width={100}
+        height={100}
       />
     </div>
   );
