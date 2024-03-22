@@ -1,20 +1,18 @@
 'use client';
+import Snackbar from '@/components/snackbar/component';
 import React from 'react';
-import Snackbar from './Snackbar';
-import MyComponent from '@/components/demo/demo';
 
 function Demo() {
-  // const handleClick = () => {
-  //   showSnackbar(); // Assuming you have a way to trigger the snackbar
-  // };
+  const handleClick = () => {
+    // showSnackbar(); // Assuming you have a way to trigger the snackbar
+  };
 
   return (
     <>
-      <MyComponent />
-      {/* <button onClick={handleClick}>Show Snackbar</button>
-      <Snackbar position="top" type="success">
+      <button onClick={handleClick}>Show Snackbar</button>
+      <Snackbar position="bottom" type="success">
         This is a custom snackbar!
-      </Snackbar> */}
+      </Snackbar>
     </>
   );
 }
