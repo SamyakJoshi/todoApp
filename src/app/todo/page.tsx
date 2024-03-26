@@ -10,8 +10,9 @@ function Demo() {
   return (
     <>
       <button onClick={handleClick}>Show Snackbar</button>
+
       <Snackbar position="bottom" type="success">
-        This is a custom snackbar!
+        <div>This is a custom snackbar!</div>
       </Snackbar>
     </>
   );

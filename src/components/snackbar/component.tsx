@@ -1,6 +1,5 @@
-import React, { PropsWithChildren, useState } from 'react';
-import { BaseSnackbarProps, snackbarVariants } from './cva';
-import { twMerge } from 'tailwind-merge';
+import React, { useState, type PropsWithChildren } from 'react';
+import { type BaseSnackbarProps, snackbarVariants } from './cva';
 // import { cva } from 'class-variance-authority';
 
 // const snackbarVariants = cva({
@@ -15,19 +14,21 @@ function Snackbar({
   type = 'info',
   // duration = 5000,
 }: SnackbarProps) {
-  const [isActive, setIsActive] = useState(false);
+  const [snackbarItem, setSnackbarItem] = useState([children, children]);
 
-  const showSnackbar = () => {
-    setIsActive(true);
-  };
-  const hideSnackbar = () => {
-    setIsActive(false);
-  };
+  // const [isActive, setIsActive] = useState(false);
+
+  // const showSnackbar = () => {
+  //   setIsActive(true);
+  // };
+  // const hideSnackbar = () => {
+  //   setIsActive(false);
+  // };
 
   // setTimeout(hideSnackbar, duration);
   const snackbarClasses = snackbarVariants({ position, type });
 
-  return <div className={snackbarClasses}>{children}</div>;
+  return <div className={snackbarClasses }>{snackbarItem}</div>;
 }
 
 export default Snackbar;

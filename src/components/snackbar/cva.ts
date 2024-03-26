@@ -1,6 +1,6 @@
 import { type VariantProps, cva } from 'class-variance-authority';
 
-export const snackbarVariants = cva(['fixed', 'z-[999]'], {
+export const snackbarVariants = cva(['fixed', 'z-[999]','flex', 'flex-col', 'space-y-4',], {
   variants: {
     position: {
       top: 'top-0 left-1/2 transform -translate-x-1/2',
