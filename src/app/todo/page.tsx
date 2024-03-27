@@ -11,7 +11,7 @@ function Demo() {
     <>
       <button onClick={handleClick}>Show Snackbar</button>
 
-      <Snackbar position="bottom" type="success">
+      <Snackbar position="bottomLeft" type="success">
         <div>This is a custom snackbar!</div>
       </Snackbar>
     </>

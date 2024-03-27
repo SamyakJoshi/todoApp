@@ -1,4 +1,5 @@
 import React, { useState, type PropsWithChildren } from 'react';
+import { twMerge } from 'tailwind-merge';
 import { type BaseSnackbarProps, snackbarVariants } from './cva';
 // import { cva } from 'class-variance-authority';
 
@@ -14,7 +15,12 @@ function Snackbar({
   type = 'info',
   // duration = 5000,
 }: SnackbarProps) {
-  const [snackbarItem, setSnackbarItem] = useState([children, children]);
+  const [snackbarItem, setSnackbarItem] = useState([
+    children,
+    children,
+    children,
+    children,
+  ]);
 
   // const [isActive, setIsActive] = useState(false);
 
@@ -26,9 +32,22 @@ function Snackbar({
   // };
 
   // setTimeout(hideSnackbar, duration);
-  const snackbarClasses = snackbarVariants({ position, type });
 
-  return <div className={snackbarClasses }>{snackbarItem}</div>;
+  const sn = snackbarItem.map((item, index) => {
+    const snackbarClasses = snackbarVariants({ position, type });
+    const bottomvalue = index * 10;
+
+    return (
+      <div
+        className={twMerge(snackbarClasses, ` bottom-[${bottomvalue}px] `)}
+        key={index}
+      >
+        {item}
+      </div>
+    );
+  });
+
+  return <div className="fixed">{sn}</div>;
 }
 
 export default Snackbar;
